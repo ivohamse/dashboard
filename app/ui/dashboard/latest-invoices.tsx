@@ -1,6 +1,6 @@
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 // import { LatestInvoice } from '@/app/lib/definitions';
 import { fetchLatestInvoices } from '@/app/lib/data';
@@ -34,7 +34,8 @@ export default async function LatestInvoices() {
                     showFallback
                     src={invoice.image_url}
                     fallback = {
-                      <CameraIcon className="animate-pulse w-6 h-6 text-default-500" fill="currentColor" size={20} />
+                      <CameraIcon className="animate-pulse w-6 h-6 text-default-500" fill="currentColor" />
+                      
                     }
                     name={invoice.name}
                     className="mr-4 rounded-full"
