@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 // import { LatestInvoice } from '@/app/lib/definitions';
 import { fetchLatestInvoices } from '@/app/lib/data';
+import { Avatar } from '@nextui-org/react';
+import { CameraIcon } from '@heroicons/react/20/solid';
 
 export default async function LatestInvoices() {
   const latestInvoices = await fetchLatestInvoices()
@@ -28,12 +30,15 @@ export default async function LatestInvoices() {
                 )}
               >
                 <div className="flex items-center">
-                  <Image
+                  <Avatar
+                    showFallback
                     src={invoice.image_url}
-                    alt={`${invoice.name}'s profile picture`}
+                    fallback = {
+                      <CameraIcon className="animate-pulse w-6 h-6 text-default-500" fill="currentColor" size={20} />
+                    }
+                    name={invoice.name}
                     className="mr-4 rounded-full"
-                    width={32}
-                    height={32}
+
                   />
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold md:text-base">
